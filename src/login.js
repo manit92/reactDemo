@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import {Link} from "react-router-dom"
 
 class Login extends React.Component{
 
@@ -50,6 +51,7 @@ class Login extends React.Component{
                     <input type="password" onChange={this.updateValueP} id="password" placeholder="***"></input>
                     {this.state.admin.password}
                     <button className="btn btn-outline-success my-2 my-sm-0" onClick={this.login}> login</button>
+                    <Link to="/forgot"> <button class="btn btn-outline-success my-2 my-sm-0" >Forgot password</button></Link>
                 </div>
             )
     
