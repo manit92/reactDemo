@@ -7,6 +7,7 @@ import Dummyproduct from "./nine"
 import Signup from "./Signup"
 import Registration from "./registration"
 import Login from "./login"
+import ProductList from "./Produclist"
 
 let product = {
     imageUrl : "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQbcNjM9UENr1yYiDxGVL7vXSwj3_QvkBtV9nQELlQyevptkaQMidoW9Dsgfch3HHQ_DRYeGZeeiw&usqp=CAc",
@@ -27,7 +28,7 @@ let game = {
 function Main(){
     return (
         <div>
-            this is our first component
+            {/* this is our first component
             
             
             <Registration />
@@ -40,7 +41,9 @@ function Main(){
             })}
 
             </div>
-            <Login />
+            <Login /> */}
+            <Carousel />
+            <ProductList/>
         </div>
     )
 }
