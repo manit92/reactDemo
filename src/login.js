@@ -37,6 +37,11 @@ class Login extends React.Component{
             method: "POST"
         }).then((response)=>{
             console.log("response from signup api", response)
+            if(response.data.token){
+                this.props.history.push('/')
+            } else {
+                alert("Invalid Login")
+            }
         },(error)=>{
             console.log("error from signup api", error)
         })
