@@ -5,8 +5,17 @@ import App from './App';
 import Myapp from './app1'
 import Root from './Root'
 import * as serviceWorker from './serviceWorker';
+import {Provider} from "react-redux"
+import MyStore from "./redux/store"
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+MyStore.subscribe(() => {
+    console.log("something happenend to my store", MyStore.getState())
+})
+
+// ReactDOM.render(<Root />, document.getElementById('root'));
+
+ReactDOM.render(<Provider store={MyStore}>
+    <Root /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

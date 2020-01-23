@@ -8,6 +8,7 @@ export let  AuthReducer =(state = {}, action) => {
             case "LOGIN" : {
                 state = {...state}
                 state["isloggedin"] = true;
+                state["user"] = action.payload.user
                 return state
             }
             case "LOGOUT" : {

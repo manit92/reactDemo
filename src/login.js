@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import {Link} from "react-router-dom"
+import {connect} from "react-redux"
 
 class Login extends React.Component{
 
@@ -38,6 +39,12 @@ class Login extends React.Component{
         }).then((response)=>{
             console.log("response from signup api", response)
             if(response.data.token){
+                this.props.dispatch({
+                    type: 'LOGIN',
+                    payload: {
+                        user: response.data
+                    }
+                })
                 localStorage.email = response.data.email
                 this.props.history.push('/')
             } else {
@@ -65,4 +72,4 @@ class Login extends React.Component{
     }
 }
 
-export default Login
+export default connect()(Login)

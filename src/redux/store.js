@@ -5,10 +5,10 @@ import {AuthReducer} from "./reducers"
 let store = createStore(AuthReducer);
 
 
-store.dispatch({
-    type:'LOGIN'
-})
+// store.dispatch({
+//     type:'LOGIN'
+// })
 
-console.log(".......", store.getState())
+// console.log(".......", store.getState())
 
 export default store
