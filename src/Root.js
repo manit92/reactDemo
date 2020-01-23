@@ -24,7 +24,7 @@ class Root extends React.Component{
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/forgot" component={Forgot} />
-                <Route exact path="/details" component={ProductDetails} />
+                <Route exact path="/details/:id" component={ProductDetails} />
             </Router>
         )
     }

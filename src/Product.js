@@ -8,7 +8,7 @@ export function Product(props){
     let showProduct = () => {
         alert(props.product.productid + '....' + props.product.name)
         localStorage.productid = props.product.productid
-        props.history.push('/details')
+        props.history.push('/details/' + props.product.productid)
     }
     return ( <div onClick={showProduct}>
             { props.product  && <div class="card " style={{width: "18rem"}}>
