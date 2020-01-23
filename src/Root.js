@@ -6,6 +6,7 @@ import Signup from "./Signup"
 import HomeScreen from "./app1"
 import Forgot from "./Forgot"
 import ProductDetails from "./ProductDetails"
+import Cart from "./Cart"
 
 
 
@@ -25,7 +26,8 @@ class Root extends React.Component{
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/forgot" component={Forgot} />
                 <Route exact path="/details/:id" component={ProductDetails} />
-            </Router>
+                <Route exact path="/Cart" component={Cart} />
+                </Router>
         )
     }
 }

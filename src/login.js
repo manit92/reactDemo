@@ -38,6 +38,7 @@ class Login extends React.Component{
         }).then((response)=>{
             console.log("response from signup api", response)
             if(response.data.token){
+                localStorage.email = response.data.email
                 this.props.history.push('/')
             } else {
                 alert("Invalid Login")

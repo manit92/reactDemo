@@ -8,17 +8,38 @@ import axios from "axios"
 // var apiurl = 'https://learningmeanwithashu.herokuapp.com/api/product/' + this.state.productid;
 class ProductDetails extends Component {
     Addtocart = () => {
-        if (localStorage.getItem('user')) {
-            this.props.dispatch({
-                type: "ADDTOCART",
-                payload: this.state.product
-            })
-            // console.log("checking", Store.getState());
-            this.props.history.push('/cart');
+        // if (localStorage.getItem('user')) {
+        //     this.props.dispatch({
+        //         type: "ADDTOCART",
+        //         payload: this.state.product
+        //     })
+        //     // console.log("checking", Store.getState());
+        //     this.props.history.push('/cart');
 
-        } else {
-            this.props.history.push('/login');
+        // } else {
+        //     this.props.history.push('/login');
+        // }
+
+        var requestObj = {
+            productid: this.state.product.productid,
+            email:localStorage.email,
+            product:{
+                name: this.state.product.name,
+                image: this.state.product.image,
+                price: this.state.product.price
+            }
         }
+        console.log("the value aman", requestObj)
+        axios({
+            url:'https://apibyashu.herokuapp.com/api/addtocart',
+            data:requestObj,
+            method: "POST"
+        }).then((response)=>{
+            console.log("response from addtocart api", response)
+                this.props.history.push('/Cart')
+         },(error)=>{
+            console.log("error from signup api", error)
+        })
     }
     constructor() {
         super();
@@ -29,7 +50,8 @@ class ProductDetails extends Component {
 }
 
     componentDidMount() {
-        var productid = localStorage.productid
+        // var productid = localStorage.productid
+        var productid = this.props.match.params.id
     axios({
         url:'https://apibyashu.herokuapp.com/api/product/' + productid,
         method: "get"
